@@ -33,5 +33,6 @@ add_filter( 'block_categories_all', 'add_custom_category' );
 
 function create_block_test_wp_gutemberg_plugin_block_init() {
 	register_block_type( __DIR__ . '/build/test_1' );
+	register_block_type( __DIR__ . '/build/test_2' );
 }
 add_action( 'init', 'create_block_test_wp_gutemberg_plugin_block_init' );
