@@ -1,0 +1,24 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 2,
+    "name": "test-wp-gutemberg-plugin/test-2",
+    "version": "0.1.0",
+    "title": "test_2",
+    "category": "test",
+    "icon": "edit",
+    "description": "paragraphe",
+    "supports": {
+        "html": false
+    },
+    "attributes": {
+        "content": {
+            "type": "string",
+            "source": "text",
+            "selector": ".content"
+        }
+    },
+    "textdomain": "test-wp-gutemberg-plugin",
+    "editorScript": "file:./index.js",
+    "editorStyle": "file:./index.css",
+    "style": "file:./style-index.css"
+}
