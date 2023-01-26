@@ -55,21 +55,34 @@ function Edit(props) {
   const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)();
 
   // La fonction qui met à jour la valeur
-  const onChangeContent = event => {
+  const onChangeUrl = event => {
     props.setAttributes({
-      content: event.target.value
+      main_url: event.target.value
+    });
+  };
+  const onChangeAlt = event => {
+    props.setAttributes({
+      main_alt: event.target.value
     });
   };
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", blockProps, " ", props.isSelected ?
   // N'afficher le champ seulement si le bloc est actif
-  (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("input", {
+  (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("input", {
     type: "text",
-    value: props.attributes.content,
-    onChange: onChangeContent,
-    placeholder: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Write a text!', 'capitainewp-gut-bases')
-  }) : (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
-    className: "content"
-  }, " ", props.attributes.content, " "), " ");
+    value: props.attributes.main_url,
+    onChange: onChangeUrl,
+    placeholder: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('url of main pic', '')
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("br", null), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("input", {
+    type: "string",
+    value: props.attributes.main_alt,
+    onChange: onChangeAlt,
+    placeholder: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('title of gallerie', '')
+  })) : (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "parent__cardGallery"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("figure", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
+    src: props.attributes.main_url,
+    alt: props.attributes.main_alt
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("figcaption", null, props.attributes.main_alt))), " ");
 }
 
 /***/ }),
@@ -167,9 +180,12 @@ __webpack_require__.r(__webpack_exports__);
  * @return {WPElement} Element to render.
  */
 function save(props) {
-  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("p", (0,_babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({
-    className: "content"
-  }, _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps.save()), props.attributes.content);
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", (0,_babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({
+    className: "parent__cardGallery"
+  }, _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps.save()), props.attributes.content, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("figure", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("img", {
+    src: props.attributes.main_url,
+    alt: props.attributes.main_alt
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("figcaption", null, props.attributes.main_alt)));
 }
 
 /***/ }),
@@ -271,7 +287,7 @@ function _extends() {
   \*******************************************/
 /***/ ((module) => {
 
-module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"test-wp-gutemberg-plugin/test-3-cards-gallery","version":"0.1.0","title":"test_3-cards-gallery","category":"test","icon":"edit","description":"paragraphe","supports":{"html":false},"attributes":{"content":{"type":"string","source":"text","selector":".content"}},"textdomain":"test-wp-gutemberg-plugin","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
+module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"test-wp-gutemberg-plugin/test-3-cards-gallery","version":"0.1.0","title":"test_3-cards-gallery","category":"test","icon":"edit","description":"paragraphe","supports":{"html":false},"attributes":{"main_url":{"type":"string","source":"attribute","selector":"img","attribute":"src","__experimentalRole":"content"},"main_alt":{"type":"string","source":"attribute","selector":"img","attribute":"alt","default":"","__experimentalRole":"content"}},"textdomain":"test-wp-gutemberg-plugin","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
 
 /***/ })
 

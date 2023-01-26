@@ -17,8 +17,12 @@ import { __ } from '@wordpress/i18n';
  */
 export default function save( props ) {
 	return (
-		<p className="content" { ...useBlockProps.save() }>
+		<div className="parent__cardGallery" { ...useBlockProps.save() }>
 			{ props.attributes.content }
-		</p>
+			<figure>
+				<img src={ props.attributes.main_url } alt={ props.attributes.main_alt } />
+				<figcaption>{ props.attributes.main_alt }</figcaption>
+			</figure>
+		</div>
 	);
 }
