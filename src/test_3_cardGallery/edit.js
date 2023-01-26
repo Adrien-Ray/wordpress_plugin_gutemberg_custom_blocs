@@ -33,19 +33,40 @@ export default function Edit(props) {
     const blockProps = useBlockProps()
 
     // La fonction qui met à jour la valeur
-    const onChangeContent = event => {
-        props.setAttributes({ content: event.target.value })
+    const onChangeUrl = event => {
+        props.setAttributes({
+            main_url: event.target.value
+        })
+    }
+    const onChangeAlt = event => {
+        props.setAttributes({
+            main_alt: event.target.value
+        })
     }
 
     return ( <div {...blockProps }> {
             props.isSelected ? ( // N'afficher le champ seulement si le bloc est actif
-                <input
-					type = 'text'
-					value = { props.attributes.content }
-					onChange = { onChangeContent }
-					placeholder = { __('Write a text!', 'capitainewp-gut-bases') }
-                />
-            ) : ( <p className = "content"> { props.attributes.content } </p>)
+                <div>
+                    <input
+                        type = 'text'
+                        value = { props.attributes.main_url }
+                        onChange = { onChangeUrl }
+                        placeholder = { __('url of main pic', '') }
+                    /><br></br>
+                    <input
+                        type = 'string'
+                        value = { props.attributes.main_alt }
+                        onChange = { onChangeAlt }
+                        placeholder = { __('title of gallerie', '') }
+                    />
+                </div>
+            ) : ( 
+                <div className="parent__cardGallery">
+                    <figure>
+                        <img src={ props.attributes.main_url } alt={ props.attributes.main_alt } />
+                        <figcaption>{ props.attributes.main_alt }</figcaption>
+                    </figure>
+                </div>)
         } </div>
     )
 }
