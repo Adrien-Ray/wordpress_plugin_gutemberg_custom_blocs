@@ -6,7 +6,7 @@
     "title": "test_3-cards-gallery",
     "category": "test",
     "icon": "edit",
-    "description": "paragraphe",
+    "description": "card xith slider onclick",
     "supports": {
         "html": false
     },

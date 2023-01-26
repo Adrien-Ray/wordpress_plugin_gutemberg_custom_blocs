@@ -47,6 +47,7 @@ export default function Edit(props) {
     return ( <div {...blockProps }> {
             props.isSelected ? ( // N'afficher le champ seulement si le bloc est actif
                 <div>
+                    <h2>card of gallerie</h2>
                     <input
                         type = 'text'
                         value = { props.attributes.main_url }
@@ -59,6 +60,7 @@ export default function Edit(props) {
                         onChange = { onChangeAlt }
                         placeholder = { __('title of gallerie', '') }
                     />
+                    <h2>gallerie</h2>
                 </div>
             ) : ( 
                 <div className="parent__cardGallery">
